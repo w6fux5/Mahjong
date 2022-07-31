@@ -3,8 +3,8 @@ import { UIControllers } from "../../Framework/Manager/UI/UIControllers";
 import { EventManager } from "../../Framework/Manager/EventManager";
 const { ccclass } = _decorator;
 
-@ccclass("LoadingUI_Ctrl")
-export class LoadingUI_Ctrl extends UIControllers {
+@ccclass("LandingUi_Ctrl")
+export class LandingUi_Ctrl extends UIControllers {
   private progress: Label | null = null;
 
   onLoad(): void {
