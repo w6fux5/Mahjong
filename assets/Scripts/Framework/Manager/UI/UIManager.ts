@@ -21,24 +21,28 @@ export class UIManager extends Component {
   }
 
   // 顯示 landing ui
-  public showUIPrefab(preFab: Prefab, parent?: Node): void {
+  public showUIPrefab(preFab: Prefab, hasCtrl: boolean, parent?: Node): void {
     // Init view by prefab
     const uiView: Node = instantiate(preFab) as Node;
     parent = parent || this.canvas;
     parent.addChild(uiView);
 
     // 在節點掛載 ui controllers
-    uiView.addComponent(`${preFab.data.name}_Ctrl`);
+    if (hasCtrl) {
+      uiView.addComponent(`${preFab.data.name}_Ctrl`);
+    }
     this.uiMap[preFab.data.name] = uiView;
   }
 
   // 顯示 ui
-  public ShowUIView(viewName: string, parent?: Node): void {
+  public ShowUIView(
+    abName: string,
+    viewName: string,
+    hasCtrl: boolean,
+    parent?: Node
+  ): void {
     // Get Prefab
-    const uiPrefab = ResourceManager.Instance.getAsset(
-      "GUI",
-      `UIPrefabs/${viewName}`
-    );
+    const uiPrefab = ResourceManager.Instance.getAsset(abName, viewName);
 
     if (!uiPrefab) {
       console.log("can not find ui prefab");
@@ -52,7 +56,9 @@ export class UIManager extends Component {
     this.uiMap[viewName] = uiView;
 
     // 在節點掛載 ui controllers
-    uiView.addComponent(`${viewName}_Ctrl`);
+    if (hasCtrl) {
+      uiView.addComponent(`${viewName}_Ctrl`);
+    }
   }
 
   public RemoveUI(uiName: string) {

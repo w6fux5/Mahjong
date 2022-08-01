@@ -2,13 +2,11 @@
   "ver": "1.1.0",
   "importer": "directory",
   "imported": true,
-  "uuid": "b129c734-5726-47e5-9559-064ac113306b",
+  "uuid": "d626ac98-ab03-48d7-87d2-128208ce472f",
   "files": [],
   "subMetas": {},
   "userData": {
     "compressionType": {},
-    "isRemoteBundle": {},
-    "isBundle": true,
-    "bundleName": "GUI"
+    "isRemoteBundle": {}
   }
 }

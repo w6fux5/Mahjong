@@ -16,11 +16,13 @@ import { AuthProxy, NetEventDispatch } from "./ServerProxy";
 
 const resPkg = {
   // 手動指定加載
-  GUI: [{ assetType: Prefab, urls: ["UIPrefabs/TestUI"] }],
-  Sounds: [{ assetType: AudioClip, urls: ["CK_attack1", "Qinbing_die"] }],
+  // GUI: [{ assetType: Prefab, urls: ["UIPrefabs/TestUI"] }],
+  // Sounds: [{ assetType: AudioClip, urls: ["CK_attack1", "Qinbing_die"] }],
 
   // 整包加載
-  // "Sounds": AudioClip,
+  Sounds: AudioClip,
+  Characters: Prefab,
+  GUI: Prefab,
 };
 
 export class GameApp extends Component {
@@ -44,7 +46,7 @@ export class GameApp extends Component {
   public EnterGame(): void {
     console.log("Enter game...");
 
-    UIManager.Instance.showUIPrefab(GameLaunch.Instance.Prefab);
+    UIManager.Instance.showUIPrefab(GameLaunch.Instance.Prefab, true);
 
     ResourceManager.Instance.preloadResPkg(
       resPkg,
@@ -115,7 +117,7 @@ export class GameApp extends Component {
 
     //==== UIManager 測試  ====//
     // UIManager.Instance.ClearAll()
-    UIManager.Instance.ShowUIView("TestUI");
+    UIManager.Instance.ShowUIView("Characters", "Ballon", false);
     //=== end ====//
 
     //=== ResourceManager 測試 ====//

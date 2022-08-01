@@ -2,13 +2,13 @@
   "ver": "1.1.0",
   "importer": "directory",
   "imported": true,
-  "uuid": "b129c734-5726-47e5-9559-064ac113306b",
+  "uuid": "baefedb3-fd61-4234-8f2b-535a01a6cbc6",
   "files": [],
   "subMetas": {},
   "userData": {
     "compressionType": {},
     "isRemoteBundle": {},
-    "isBundle": true,
-    "bundleName": "GUI"
+    "bundleName": "Characters",
+    "isBundle": true
   }
 }
