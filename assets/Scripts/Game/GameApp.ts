@@ -117,7 +117,7 @@ export class GameApp extends Component {
 
     //==== UIManager 測試  ====//
     // UIManager.Instance.ClearAll()
-    UIManager.Instance.ShowUIView("Characters", "Ballon", false);
+    UIManager.Instance.ShowUIView("GUI", "MainUi", true);
     //=== end ====//
 
     //=== ResourceManager 測試 ====//
