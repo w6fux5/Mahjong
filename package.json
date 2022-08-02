@@ -9,6 +9,7 @@
     "plop": "plop"
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "protobufjs": "^7.0.0"
   },
   "devDependencies": {

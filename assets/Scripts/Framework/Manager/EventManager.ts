@@ -6,6 +6,9 @@ export class EventManager extends Component {
   private eventMap: object = {};
 
   public EventType = {
+    LOGIN_SUCCESS: "LOGIN_SUCCESS",
+    LOGIN_FAIL: "LOGIN_FAIL",
+
     NET_CONNECTING: "NET_CONNECTING",
     NET_DISCONNECTED: "NET_DISCONNECTED",
     NET_CONNECT_SUCCESS: "NET_CONNECT_SUCCESS",
@@ -40,9 +43,7 @@ export class EventManager extends Component {
     caller: any,
     callback: Function
   ): void {
-
     if (!this.eventMap[eventName]) return;
-
 
     for (let i = 0; i < this.eventMap[eventName].length; i++) {
       let obj = this.eventMap[eventName][i];

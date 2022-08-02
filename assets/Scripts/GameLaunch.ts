@@ -1,4 +1,4 @@
-import { _decorator, Component, TextAsset, Prefab } from 'cc';
+import { _decorator, Component, TextAsset, Prefab } from "cc";
 
 import {
   EventManager,
@@ -20,14 +20,14 @@ export class GameLaunch extends Component {
   @property
   public NetMode: boolean = true;
 
-  @property
-  private wsUrl: string = "ws://127.0.0.1:9876?token='ccccc";
+  // @property
+  // private wsUrl: string = "ws://127.0.0.1:9876?token='ccccc";
 
-  @property(TextAsset)
-  private pbTexAsset: TextAsset | null = null; // 協議描述對象
+  // @property(TextAsset)
+  // private pbTexAsset: TextAsset | null = null; // 協議描述對象
 
   @property(Prefab)
-  public Prefab: Prefab | null = null
+  public Prefab: Prefab | null = null;
 
   onLoad(): void {
     if (GameLaunch.Instance) {
@@ -46,11 +46,11 @@ export class GameLaunch extends Component {
     this.node.addComponent(UIManager);
     this.node.addComponent(EventManager);
 
-    // 是否使用網路模塊
-    if (this.NetMode) {
-      this.node.addComponent(ProtoManager).Init(this.pbTexAsset);
-      this.node.addComponent(NetManager).Init(this.wsUrl);
-    }
+    // // 是否使用網路模塊
+    // if (this.NetMode) {
+    //   this.node.addComponent(ProtoManager).Init(this.pbTexAsset);
+    //   this.node.addComponent(NetManager).Init(this.wsUrl);
+    // }
 
     this.node.addComponent(GameApp);
     // end

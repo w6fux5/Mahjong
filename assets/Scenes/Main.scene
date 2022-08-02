@@ -84,12 +84,7 @@
     },
     "_enabled": true,
     "__prefab": null,
-    "NetMode": false,
-    "wsUrl": "ws://127.0.0.1:9876?token='mike",
-    "pbTexAsset": {
-      "__uuid__": "9a476980-1372-4066-b794-7557ac01b3ab",
-      "__expectedType__": "cc.TextAsset"
-    },
+    "NetMode": true,
     "Prefab": {
       "__uuid__": "426e2ebe-c636-4192-a49b-f873743b4f94",
       "__expectedType__": "cc.Prefab"
@@ -123,8 +118,8 @@
     "_prefab": null,
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 360,
-      "y": 480,
+      "x": 700,
+      "y": 325,
       "z": 0
     },
     "_lrot": {
@@ -205,7 +200,7 @@
     "_priority": 1073741824,
     "_fov": 45,
     "_fovAxis": 0,
-    "_orthoHeight": 480,
+    "_orthoHeight": 332.4267782426778,
     "_near": 1,
     "_far": 2000,
     "_color": {
@@ -244,8 +239,8 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 720,
-      "height": 960
+      "width": 1400,
+      "height": 650
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",

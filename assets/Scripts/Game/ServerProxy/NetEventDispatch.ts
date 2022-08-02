@@ -12,7 +12,6 @@ export class NetEventDispatch extends Component {
   public static Instance: NetEventDispatch | null = null;
 
   onLoad(): void {
-    console.log(Cmd);
     if (NetEventDispatch.Instance) {
       this.destroy();
       return;
@@ -25,11 +24,36 @@ export class NetEventDispatch extends Component {
     EventManager.Instance.AddEventListener(
       EventManager.Instance.EventType.NET_MESSAGE,
       this,
-      this.onRecvMsg
+      this.onRecvMsgByText
+      // this.onRecvMsg // binary type
     );
   }
 
-  public sendMessage(serviceType: number, cmdType: number, message: any) {
+  private onRecvMsgByText(data: any): void {
+    console.log(data);
+
+    
+
+    // EventManager.Instance.Emit(ServiceType[serviceType], {
+    //   cmdType,
+    //   body: msgBody,
+    // });
+  }
+
+  public sendMessageByText(data: any): void {
+    console.log("send", data);
+  }
+
+
+
+
+  //======= protoBuf 二進制 ======//
+
+  public sendMessageByBinary(
+    serviceType: number,
+    cmdType: number,
+    message: any
+  ) {
     console.log(serviceType, cmdType, message);
     // step1: message => buf
     // enum Cmd --->  {0: "INVALID_CMD", INVALID_CMD: 0}
@@ -60,7 +84,7 @@ export class NetEventDispatch extends Component {
     // end
   }
 
-  private onRecvMsg(eventName: string, data: ArrayBuffer): void {
+  private onRecvMsgByBinary(eventName: string, data: ArrayBuffer): void {
     // Get serverType and cmdType;
     const dataView = new DataView(data);
     const serviceType = dataView.getInt16(0, true);

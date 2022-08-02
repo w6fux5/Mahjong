@@ -47,7 +47,7 @@ export class NetManager extends Component {
 
     this.socket = new WebSocket(this.url);
 
-    this.socket.binaryType = "arraybuffer"; // 二進制
+    // this.socket.binaryType = "arraybuffer"; // 二進制
     this.socket.onopen = this.on_opened.bind(this);
     this.socket.onmessage = this.on_recv_data.bind(this);
     this.socket.onclose = this.on_socket_close.bind(this);
@@ -90,7 +90,7 @@ export class NetManager extends Component {
 
   // 收到 server 訊息 event
   private on_recv_data(event: any): void {
-    console.log(event.data)
+    console.log(JSON.parse(event.data))
     EventManager.Instance.Emit(
       EventManager.Instance.EventType.NET_MESSAGE,
       event.data

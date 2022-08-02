@@ -58,8 +58,8 @@ export class GameApp extends Component {
         );
       },
       () => {
-        // this.EnterLoadingScene();
-        this.testScene(); // for test
+        this.EnterLoadingScene();
+        // this.testScene(); // for test
       }
     );
   }
@@ -73,6 +73,8 @@ export class GameApp extends Component {
     // end
 
     // render UI
+    UIManager.Instance.ShowUIView("GUI", "MainUi", true);
+
     // end
   }
 
@@ -117,7 +119,7 @@ export class GameApp extends Component {
 
     //==== UIManager 測試  ====//
     // UIManager.Instance.ClearAll()
-    UIManager.Instance.ShowUIView("GUI", "MainUi", true);
+    // UIManager.Instance.ShowUIView("GUI", "MainUi", true);
     //=== end ====//
 
     //=== ResourceManager 測試 ====//
