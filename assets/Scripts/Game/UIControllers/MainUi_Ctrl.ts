@@ -45,7 +45,9 @@ export class MainUi_Ctrl extends UIControllers {
 
   private onGameStartClick(): void {
     console.log("click!");
-    AuthProxy.Instance.Login();
+    // AuthProxy.Instance.Login();
+    UIManager.Instance.ShowUIView("GUI", "GameUi", true);
+
     // AuthProxy.Instance.UserNameLogin({ userName: "Mike!!", password: "1234!!" });
   }
 
