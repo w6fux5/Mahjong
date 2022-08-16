@@ -1,4 +1,4 @@
-import { _decorator, Component, AudioClip, Prefab } from "cc";
+import { _decorator, Component, AudioClip, Prefab, SpriteAtlas } from "cc";
 
 import { GameLaunch } from "../GameLaunch";
 
@@ -16,6 +16,7 @@ import { AuthProxy, NetEventDispatch } from "./ServerProxy";
 
 const resPkg = {
   // 手動指定加載
+  // mainBin: [{assetType: SpriteAtlas, urls:['mainBinList']}],
   // GUI: [{ assetType: Prefab, urls: ["UIPrefabs/TestUI"] }],
   // Sounds: [{ assetType: AudioClip, urls: ["CK_attack1", "Qinbing_die"] }],
 
@@ -23,6 +24,7 @@ const resPkg = {
   Sounds: AudioClip,
   Characters: Prefab,
   GUI: Prefab,
+  Mahjong: Prefab,
 };
 
 export class GameApp extends Component {
@@ -74,7 +76,6 @@ export class GameApp extends Component {
 
     // render UI
     UIManager.Instance.ShowUIView("GUI", "MainUi", true);
-
     // end
   }
 

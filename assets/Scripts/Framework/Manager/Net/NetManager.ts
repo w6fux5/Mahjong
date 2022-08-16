@@ -69,9 +69,16 @@ export class NetManager extends Component {
     this.state = State.disconnected;
   }
 
-  // Send Data
-  public SendData(data: ArrayBuffer): void {
+  public SendDataText(data: string): void {
     if (this.state === State.connected && this.socket) {
+      this.socket.send(data);
+    }
+  }
+
+  // Send Data
+  public SendDataBinary(data: ArrayBuffer): void {
+    if (this.state === State.connected && this.socket) {
+      console.log("call");
       this.socket.send(data);
     }
   }
@@ -90,11 +97,16 @@ export class NetManager extends Component {
 
   // 收到 server 訊息 event
   private on_recv_data(event: any): void {
-    console.log(JSON.parse(event.data))
-    EventManager.Instance.Emit(
-      EventManager.Instance.EventType.NET_MESSAGE,
-      event.data
-    );
+    try {
+      const messageFromServer = JSON.parse(event.data);
+      EventManager.Instance.Emit(
+        EventManager.Instance.EventType.NET_MESSAGE,
+        messageFromServer
+      );
+    } catch (error) {
+      console.log(error);
+      console.log(event);
+    }
   }
 
   // 關閉 socket event

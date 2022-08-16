@@ -5,6 +5,8 @@
   /* Add your custom configuration here. */
   "compilerOptions": {
     "strict": false,
-    "allowSyntheticDefaultImports": true
-  }
+    "allowSyntheticDefaultImports": true,
+    "target": "es2016"
+  },
+  "lib": ["dom", "es5", "es2016", "promise"]
 }

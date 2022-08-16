@@ -28,12 +28,10 @@ export class AuthProxy extends Component {
     console.log(eventName);
   }
 
-  public Login(): void {
+  public Login(uid: string, hash: string): void {
     axios
       .post("http://192.168.0.200:7001/api/v1/login", {
-        uid: "aaauid",
-        hash: "971fcbbd4101f73e3c24301e80359eea",
-      })
+        uid,hash})
       .then((data: any) => {
         EventManager.Instance.Emit(
           EventManager.Instance.EventType.LOGIN_SUCCESS,

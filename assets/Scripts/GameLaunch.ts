@@ -11,6 +11,7 @@ import {
 } from "./Framework/Manager";
 
 import { GameApp } from "./Game";
+import { GameManager } from './Game/GameManager';
 const { ccclass, property } = _decorator;
 
 @ccclass("GameLaunch")
@@ -45,6 +46,7 @@ export class GameLaunch extends Component {
     this.node.addComponent(TimerManager);
     this.node.addComponent(UIManager);
     this.node.addComponent(EventManager);
+    this.node.addComponent(GameManager)
 
     // // 是否使用網路模塊
     // if (this.NetMode) {

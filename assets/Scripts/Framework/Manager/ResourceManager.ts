@@ -20,7 +20,14 @@ let resPkg = {
 
 */
 
-import { _decorator, Component, assetManager, AssetManager, Asset } from "cc";
+import {
+  _decorator,
+  Component,
+  assetManager,
+  AssetManager,
+  Asset,
+  Sprite,
+} from "cc";
 
 export class ResourceManager extends Component {
   public static Instance: ResourceManager = null as unknown as ResourceManager;
@@ -294,5 +301,15 @@ export class ResourceManager extends Component {
     }
 
     return abBundle.get(url);
+  }
+
+  /**
+   * 獲取 Atlas
+   */
+  public getAtlas(abName: string, url: string) {
+    const prefab = this.getAsset(abName, url);
+    const sprite = prefab.data.getComponent(Sprite);
+    const atlas = sprite._atlas.spriteFrames;
+    return atlas;
   }
 }
